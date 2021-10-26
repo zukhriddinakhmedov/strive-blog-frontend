@@ -6,7 +6,7 @@ import BlogLike from "../../components/likes/BlogLike";
 // import posts from "../../data/posts.json";
 import "./styles.css";
 
-const url = process.env.REACT_APP_API_URL
+const url = process.env.REACT_APP_DEP_API_URL
 class Blog extends Component {
   state = {
     post: {},

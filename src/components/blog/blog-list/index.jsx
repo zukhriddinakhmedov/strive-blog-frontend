@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Row, Col } from "react-bootstrap";
 import BlogItem from "../blog-item";
 
-const url = process.env.REACT_APP_API_URL
+const url = process.env.REACT_APP_DEP_API_URL
 export default class BlogList extends Component {
   state = {
     posts: [],
@@ -26,6 +26,7 @@ export default class BlogList extends Component {
   render() {
     return (
       <Row>
+
         {this.state.posts.map((post) => (
           <Col md={4} style={{ marginBottom: 50 }}>
             <BlogItem key={post.title} {...post} />
