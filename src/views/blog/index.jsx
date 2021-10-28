@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Image } from "react-bootstrap";
+import { Container, Image, Button } from "react-bootstrap";
 import { withRouter } from "react-router";
 import BlogAuthor from "../../components/blog/blog-author";
 import BlogLike from "../../components/likes/BlogLike";
@@ -30,6 +30,27 @@ class Blog extends Component {
       console.log(error)
     }
   }
+  // downloadPdf = async (e) => {
+  //   e.preventDefault()
+  //   try {
+  //     const response = await fetch(`${url}/posts/${id}/pdf`, {
+  //       method: "GET",
+  //       headers: {
+  //         'Content-Type': 'application.pdf',
+  //       },
+  //     })
+  //       .then((response) => response.blob())
+  //       .then((blob) => {
+  //         const newUrl = window.URL.createObjectURL(
+  //           new Blob([blob]),
+  //         )
+  //       })
+  //       const link = document.createElement('a')
+  //       link.href = `https://`
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
 
 
   componentDidMount() {
@@ -61,9 +82,17 @@ class Blog extends Component {
             </div>
 
             <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
+            <div>
+              <a href={`${url}/posts/${post.id}/pdf`} target="blank" >
+                <Button
+                  className="post-add-button bg-dark"
+                >Download as pdf{""}</Button>
+              </a>
+            </div>
             {/* <Button as={Link} to={"/new/" + post.id}>
               Edit
             </Button> */}
+
           </Container>
         </div>
       );
