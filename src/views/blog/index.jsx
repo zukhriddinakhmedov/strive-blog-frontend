@@ -18,8 +18,8 @@ class Blog extends Component {
       const response = await fetch(`${url}/posts`)
       if (response.ok) {
         const posts = await response.json()
-        const { id } = this.props.match.params
-        const post = posts.find((post) => post.id === id)
+        const { _id } = this.props.match.params
+        const post = posts.find((post) => post._id === _id)
         if (post) {
           this.setState({ post, loading: false })
         } else {
@@ -83,7 +83,7 @@ class Blog extends Component {
 
             <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
             <div>
-              <a href={`${url}/posts/${post.id}/pdf`} target="blank" >
+              <a href={`${url}/posts/${post._id}/pdf`} target="blank" >
                 <Button
                   className="post-add-button bg-dark"
                 >Download as pdf{""}</Button>
